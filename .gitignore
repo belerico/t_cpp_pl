@@ -3,8 +3,9 @@
 
 # But not .cpp
 !*.cpp
+!*.pdf
 
 # Or directories
 !*/
 !.gitignore
-!README.md
+!*.md
