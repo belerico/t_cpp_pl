@@ -125,8 +125,22 @@ template <typename T>
 ostream &operator<<(ostream &strm, Vector<T> &v)
 {
     strm << '[';
-    for (int i = 0; i < v.size(); ++i)
-        strm << v[i] << ", ";
+    // for (int i = 0; i < v.size(); ++i)
+    //     strm << v[i] << ", ";
+    for (T x : v)
+        strm << x << ", ";
     strm << ']';
     return strm;
+}
+
+template <typename T>
+T *begin(Vector<T> &v)
+{
+    return v.size() ? &v[0] : nullptr;
+}
+
+template <typename T>
+T *end(Vector<T> &v)
+{
+    return v.size() + begin(v);
 }
