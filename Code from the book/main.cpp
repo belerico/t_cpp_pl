@@ -13,11 +13,12 @@ int main()
     cout << "The abs of " << c1 << " is " << c1.abs() << "\n";
 
     double d[] = {1,2,3,4};
-    Vector v1{d, 5};
-    Vector v2{1,2,3,4,5,6};
-    Vector v3 = v1;
-    v3[0] = 10;
+    Vector<double> v1{d, 5};
+    Vector<double> v2{1,2,3,4,5,6};
+    Vector<double> v3 = v2;
+    Vector<double> v4 = v3 + v2;
     cout << "v1 is equal to " << v1 << endl;
     cout << "v2 is equal to " << v2 << endl;
     cout << "v3 is equal to " << v3 << endl;
+    cout << "v2 + v3 is equal to " << v4 << endl;
 }
