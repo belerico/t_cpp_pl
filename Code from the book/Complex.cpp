@@ -1,6 +1,7 @@
 #include <iostream>
 #include <math.h>
 #include "Complex.h"
+using namespace std;
 
 Complex::Complex(double r, double i) : re{r}, im{i} {}
 Complex::Complex(double r) : re{r}, im{0} {}
@@ -49,7 +50,7 @@ Complex operator-(Complex v, Complex u) { return v -= u; }
 Complex operator-(Complex v) { return {-v.real(), -v.imag()}; }
 Complex operator*(Complex v, Complex u) { return v *= u; }
 Complex operator/(Complex v, Complex u) { return v /= u; }
-std::ostream &operator<<(std::ostream &strm, const Complex &c)
+ostream &operator<<(ostream &strm, const Complex &c)
 {
     return strm << c.re << " + " << c.im << "i";
 }
