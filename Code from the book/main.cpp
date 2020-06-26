@@ -4,6 +4,15 @@
 #include <iostream>
 using namespace std;
 
+void rec_print() { cout << endl; }
+
+template <typename T, typename... Tail>
+void rec_print(T head, Tail... tail)
+{
+    cout << head << " ";
+    rec_print(tail...);
+}
+
 int main()
 {
     Complex c1{2, 1};
@@ -23,4 +32,7 @@ int main()
     cout << "v3 is equal to " << v3 << endl;
     cout << "v4 = v2 + v3 is equal to " << v4 << endl;
     cout << "Number of values less than 3: " << count(v4, LessThan<float>{3}) << endl;
+    cout << "Number of values less than 3: " << count(v4, [&](int i) { return i < 3; }) << endl; // [&x] capture only x by ref, [x] capture x and copy it, [&] captuire all local names by ref, [=] capture all local by value
+    cout << "The recursive print of {1,2,3,Hola} is ";
+    rec_print(1, 2, 3, "Hola");
 }
