@@ -127,7 +127,7 @@ ostream &operator<<(ostream &strm, Vector<T> &v)
     strm << '[';
     // for (int i = 0; i < v.size(); ++i)
     //     strm << v[i] << ", ";
-    for (T x : v)
+    for (T &x : v)
         strm << x << ", ";
     strm << ']';
     return strm;
@@ -143,4 +143,14 @@ template <typename T>
 T *end(Vector<T> &v)
 {
     return v.size() + begin(v);
+}
+
+template <typename T, typename P>
+int count(Vector<T> &v, P pred)
+{
+    int cnt = 0;
+    for (T &x : v)
+        if (pred(x))
+            ++cnt;
+    return cnt;
 }
