@@ -1,7 +1,9 @@
 #include "Complex.h"
 #include "Vector.h"
 #include "LessThan.h"
+#include "RangeCheckVec.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 void rec_print() { cout << endl; }
@@ -27,6 +29,7 @@ int main()
     Vector<double> v2{1, 2, 3, 4, 5, 6};
     Vector<double> v3 = v2;
     Vector<double> v4 = v3 + v2;
+    RangeCheckVec<string> v5{"The boom bap is coming back", " with an axe to mumble rap"};
     cout << "v1 is equal to " << v1 << endl;
     cout << "v2 is equal to " << v2 << endl;
     cout << "v3 is equal to " << v3 << endl;
@@ -35,4 +38,16 @@ int main()
     cout << "Number of values less than 3: " << count(v4, [&](int i) { return i < 3; }) << endl; // [&x] capture only x by ref, [x] capture x and copy it, [&] captuire all local names by ref, [=] capture all local by value
     cout << "The recursive print of {1,2,3,Hola} is ";
     rec_print(1, 2, 3, "Hola");
+    cout << "v5 is equal to [";
+    for (auto &x : v5)
+        cout << x << ",";
+    cout << "]" << endl;
+    try
+    {
+        v5[v5.size()];
+    }
+    catch (out_of_range)
+    {
+        cout << "Ooops, out of range mothafucka!\n";
+    }
 }

@@ -1,3 +1,7 @@
+/* 
+    Read in a bool, a char, an int, a double, and a string
+ */
+
 #include <iostream>
 #include <string>
 
