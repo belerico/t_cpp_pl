@@ -1,9 +1,9 @@
-#include <vector>
-#include <string>
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <iterator>
-#include <algorithm>
+#include <string>
+#include <vector>
 using namespace std;
 
 int main()
