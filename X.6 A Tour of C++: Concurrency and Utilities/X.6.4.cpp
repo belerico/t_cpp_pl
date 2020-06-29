@@ -36,7 +36,7 @@ int main()
     cout << "Insert the number to factor the output histogram: ";
     cin >> factor;
 
-    Rand_normal rn{0.0, 1.0};
+    Rand_normal rn{mean, stdev};
 
     for (int i = 0; i < n; ++i)
         ++histogram[(int)round(rn())];
